@@ -52,6 +52,7 @@ public class Main {
         exportador.addChild(livro);
         exportador.addChild(album);
         exportador.decorate(new RelatorioCompletoDecorator());
+//        exportador.decorate(new SeparadorDecorator());
         System.out.println(exportador.getExportedData());
     }
 

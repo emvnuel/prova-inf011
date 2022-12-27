@@ -14,12 +14,16 @@ public class ExportadorObra implements Element {
     public ExportadorObra(Visitor visitor) {
         this.children = new ArrayList<>();
         this.visitor = visitor;
-        this.decorator = new BaseDecorator(visitor);
+        resetDecorator();
     }
 
     public void decorate(BaseDecorator decorator) {
+        decorator.setVisitor(this.decorator);
         this.decorator = decorator;
-        decorator.setVisitor(visitor);
+    }
+
+    public void resetDecorator() {
+        this.decorator = new BaseDecorator(visitor);
     }
 
     public void addChild(Element element) {
